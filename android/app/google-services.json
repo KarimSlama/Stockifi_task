@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "62323116792",
+    "firebase_url": "https://stocklio-beta.firebaseio.com",
+    "project_id": "stocklio-beta",
+    "storage_bucket": "stocklio-beta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62323116792:android:7828f2e6f3c1a8cf58090d",
+        "android_client_info": {
+          "package_name": "io.stockl.stocklio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62323116792-q0c269ab4tkcpsmom43io2b7i156q5i6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrqqyvzlOK65LHotK4DJiOtGwrkGI6LT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62323116792-q0c269ab4tkcpsmom43io2b7i156q5i6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "62323116792-g6jnkaj2kugfm9v2eqtb90785hmtf7ca.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.stockl.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

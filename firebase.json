@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "stockifi-web",
+    "public": "build/web",
+    "ignore": ["firebase.json", "**/.*", "**/*.map", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

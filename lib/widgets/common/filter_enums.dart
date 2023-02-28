@@ -1,0 +1,4 @@
+enum FilterSetting {
+  items,
+  inventory,
+}
