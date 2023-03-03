@@ -40,7 +40,7 @@ class ResolvedInvoice extends StatelessWidget {
         .getIsResolvedInvoiceExpanded(invoice.id ?? '');
 
     final supplier =
-        context.watch<SupplierProvider>().findById(invoice.supplierId ?? '');
+    context.watch<SupplierProvider>().findById(invoice.supplierId ?? '');
 
     final supplierName =
         supplier?.name ?? StringUtil.localize(context).label_unknown;
@@ -53,7 +53,7 @@ class ResolvedInvoice extends StatelessWidget {
           height: 4,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+          padding: const EdgeInsets.all(8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,10 +107,10 @@ class ResolvedInvoice extends StatelessWidget {
         ),
         isExpanded
             ? Container(
-                margin: const EdgeInsets.all(8.0),
-                width: Constants.imageGridSize,
-                child: ImageGridContainer(invoice: invoice),
-              )
+          margin: const EdgeInsets.all(8.0),
+          width: Constants.imageGridSize,
+          child: ImageGridContainer(invoice: invoice),
+        )
             : Container(),
         if (isExpanded)
           ResolvedInvoiceCommentSection(
@@ -164,27 +164,27 @@ class _InvoiceItemsListState extends State<InvoiceItemsList> {
     });
     return Responsive.isMobile(context)
 
-        ///enclosing the StocklioScrollView in its own NotificationListener
-        ///so as not to affect the expanding and contracting of Search FAB
+    ///enclosing the StocklioScrollView in its own NotificationListener
+    ///so as not to affect the expanding and contracting of Search FAB
         ? NotificationListener<ScrollNotification>(
-            onNotification: (_) {
-              return true;
-            },
-            child: StocklioScrollView(
-              showScrollbarOnTopAndBottom: true,
-              controller: _scrollController,
-              scrollDirection: Axis.horizontal,
-              child: Container(
-                padding: const EdgeInsets.only(top: 12.0),
-                width: MediaQuery.of(context).size.width,
-                child: InvoiceBody(
-                  invoice: widget.invoice,
-                ),
-              ),
-            ),
-          )
-        : InvoiceBody(
+      onNotification: (_) {
+        return true;
+      },
+      child: StocklioScrollView(
+        showScrollbarOnTopAndBottom: true,
+        controller: _scrollController,
+        scrollDirection: Axis.horizontal,
+        child: Container(
+          padding: const EdgeInsets.only(top: 12.0),
+          width: MediaQuery.of(context).size.width,
+          child: InvoiceBody(
             invoice: widget.invoice,
-          );
+          ),
+        ),
+      ),
+    )
+        : InvoiceBody(
+      invoice: widget.invoice,
+    );
   }
 }

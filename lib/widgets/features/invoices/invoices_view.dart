@@ -13,7 +13,6 @@ import 'package:stocklio_flutter/utils/string_util.dart';
 // Models
 import '../../../models/invoice.dart';
 import '../../../models/item.dart';
-
 // Widgets
 import 'invoice_image_picker.dart';
 import 'resolved_invoice.dart';
@@ -60,15 +59,15 @@ class _InvoicesViewState extends State<InvoicesView> {
     final invoices = context.watch<InvoiceProvider>().invoices;
 
     var unresolvedInvoices =
-        invoices.where((invoice) => invoice.state == 'unresolved').toList();
+    invoices.where((invoice) => invoice.state == 'unresolved').toList();
     var filteredInvoice = supplierUIProvider.supplierList.isNotEmpty
         ? [
-            ...unresolvedInvoices,
-            ...invoices
-                .where((invoice) => supplierUIProvider.supplierList
-                    .any((supplier) => invoice.supplierId == supplier.id))
-                .toList()
-          ]
+      ...unresolvedInvoices,
+      ...invoices
+          .where((invoice) => supplierUIProvider.supplierList
+          .any((supplier) => invoice.supplierId == supplier.id))
+          .toList()
+    ]
         : invoices;
 
     if (accessLevel < 2) {
@@ -80,26 +79,26 @@ class _InvoicesViewState extends State<InvoicesView> {
       return Center(
         child: Responsive.isMobile(context)
             ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    StringUtil.localize(context).text_upgrade1,
-                    textAlign: TextAlign.center,
-                    style: textStyle,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    StringUtil.localize(context).text_upgrade2,
-                    textAlign: TextAlign.center,
-                    style: textStyle,
-                  ),
-                ],
-              )
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              StringUtil.localize(context).text_upgrade1,
+              textAlign: TextAlign.center,
+              style: textStyle,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              StringUtil.localize(context).text_upgrade2,
+              textAlign: TextAlign.center,
+              style: textStyle,
+            ),
+          ],
+        )
             : Text(
-                '${StringUtil.localize(context).text_upgrade1} ${StringUtil.localize(context).text_upgrade2}',
-                textAlign: TextAlign.center,
-                style: textStyle,
-              ),
+          '${StringUtil.localize(context).text_upgrade1} ${StringUtil.localize(context).text_upgrade2}',
+          textAlign: TextAlign.center,
+          style: textStyle,
+        ),
       );
     }
     return Column(
@@ -134,7 +133,7 @@ class _InvoicesViewState extends State<InvoicesView> {
                   controller: _scrollController,
                   itemCount: filteredInvoice.length + 1,
                   separatorBuilder: (context, index) =>
-                      const Divider(thickness: 2),
+                  const Divider(thickness: 2),
                   itemBuilder: (context, index) {
                     if (index == filteredInvoice.length) {
                       return const SizedBox(height: 68);
@@ -154,6 +153,7 @@ class _InvoicesViewState extends State<InvoicesView> {
                     } else if (invoice.state == 'resolved') {
                       return ResolvedInvoice(invoice: invoice);
                     }
+
                     return const SizedBox();
                   },
                 ),

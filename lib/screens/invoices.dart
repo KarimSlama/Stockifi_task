@@ -33,7 +33,7 @@ class _InvoicesPageState extends State<InvoicesPage> {
     if (itemProvider.isLoading ||
         supplierProvider.isLoading ||
         context.select<InvoiceProvider, bool>(
-            (invoiceProvider) => invoiceProvider.isLoading)) {
+                (invoiceProvider) => invoiceProvider.isLoading)) {
       return const InvoiceShimmer();
     }
 
