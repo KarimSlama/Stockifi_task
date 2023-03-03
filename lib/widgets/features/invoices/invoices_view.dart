@@ -13,6 +13,7 @@ import 'package:stocklio_flutter/utils/string_util.dart';
 // Models
 import '../../../models/invoice.dart';
 import '../../../models/item.dart';
+
 // Widgets
 import 'invoice_image_picker.dart';
 import 'resolved_invoice.dart';
@@ -153,7 +154,6 @@ class _InvoicesViewState extends State<InvoicesView> {
                     } else if (invoice.state == 'resolved') {
                       return ResolvedInvoice(invoice: invoice);
                     }
-
                     return const SizedBox();
                   },
                 ),
